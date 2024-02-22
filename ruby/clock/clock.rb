@@ -15,8 +15,8 @@ class Clock
   end
 
   def to_s
-    big_hours_check
     big_minutes_check
+    big_hours_check
     "#{@hour.to_s.rjust(2,'0')}:#{@minute.to_s.rjust(2,'0')}"
   end
 
