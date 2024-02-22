@@ -16,8 +16,16 @@ class Clock
 
   def to_s
     big_hours_check
+    big_minutes_check
     "#{@hour.to_s.rjust(2,'0')}:#{@minute.to_s.rjust(2,'0')}"
   end
 
   def big_hours_check = (@hour -= 24 while @hour >= 24)
+
+  def big_minutes_check
+    while @minute >= 60
+      @minute -= 60
+      @hour += 1
+    end
+  end
 end
