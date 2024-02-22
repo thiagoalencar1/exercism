@@ -52,7 +52,5 @@ class Clock
     self.to_s
   end
 
-  def ==(other_clock)
-    true if self.to_s.eql? other_clock.to_s
-  end
+  def ==(other_clock) = (true if self.to_s.eql? other_clock.to_s)
 end
