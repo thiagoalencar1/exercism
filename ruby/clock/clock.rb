@@ -39,4 +39,10 @@ class Clock
       @hour -= 1
     end
   end
+
+  def +(other_clock)
+    self.hour += other_clock.hour
+    self.minute += other_clock.minute
+    self.to_s
+  end
 end
