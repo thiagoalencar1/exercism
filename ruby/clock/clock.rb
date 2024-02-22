@@ -18,7 +18,7 @@ class Clock
     big_minutes_check
     big_hours_check
     negative_hours_check
-    "#{@hour.to_s.rjust(2,'0')}:#{@minute.to_s.rjust(2,'0')}"
+    "#{@hour.to_s.rjust(2, '0')}:#{@minute.to_s.rjust(2, '0')}"
   end
 
   def big_hours_check = (@hour -= 24 while @hour >= 24)
@@ -30,5 +30,5 @@ class Clock
     end
   end
 
-  def negative_hours_check = (@hour += 24 while @hour < 0)
+  def negative_hours_check = (@hour += 24 while @hour.negative?)
 end
