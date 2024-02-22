@@ -9,7 +9,7 @@ To get started with TDD, see the `README.md` file in your
 class Clock
   attr_accessor :hour, :minute
 
-  def initialize(hour:, minute: 0)
+  def initialize(hour: 0, minute: 0)
     @hour = hour
     @minute = minute
   end
