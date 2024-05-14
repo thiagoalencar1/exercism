@@ -3,7 +3,7 @@ defmodule LanguageList do
 
   def add(list, language), do: [language | list]
 
-  def remove([_, tail]), do: tail
+  def remove([_ | tail]), do: tail
 
   def first([head | _]), do: head
 
