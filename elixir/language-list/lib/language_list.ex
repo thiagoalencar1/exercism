@@ -1,21 +1,13 @@
 defmodule LanguageList do
   def new(), do: []
 
-  def add(list, language), do: list |> List.insert_at(0, language)
+  def add(list, language), do: [language | list]
 
-  def remove(list), do: list |> List.delete_at(0)
+  def remove([_, tail]), do: tail
 
-  def first(list) do
-    [head | _tail] = list
-    head
-  end
+  def first([head | _]), do: head
 
-  def count(list), do: list |> Enum.count()
+  def count(list), do: length(list)
 
-  def functional_list?(list) do
-    cond do
-      "Elixir" in list -> true
-      true -> false
-    end
-  end
+  def functional_list?(list), do: "Elixir" in list
 end
