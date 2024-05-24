@@ -1,15 +1,7 @@
 defmodule HighSchoolSweetheart do
-  def first_letter(name) do
-    String.trim(name)
-    |> String.at(0)
-  end
+  def first_letter(name), do: String.trim(name) |> String.first()
 
-  def initial(name) do
-    name
-    |> first_letter()
-    |> String.upcase()
-    |> Kernel.<>(".")
-  end
+  def initial(name), do: String.upcase(first_letter(name)) <> "."
 
   def initials(full_name) do
     [first_name, last_name] = String.split(full_name)
@@ -36,6 +28,5 @@ defmodule HighSchoolSweetheart do
                  ***
                   *
     """
-    # Please implement the pair/2 function
   end
 end
