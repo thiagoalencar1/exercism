@@ -2,14 +2,16 @@ defmodule Username do
   def sanitize([]), do: []
 
   def sanitize([head | tail]) do
+    cleaned =
     case head do
-      char when char in ?a..?z -> [char | sanitize(tail)]
-      char when char == ?_ -> [char | sanitize(tail)]
-      char when char == ?ö -> [?o,?e | sanitize(tail)]
-      char when char == ?ä -> [?a,?e | sanitize(tail)]
-      char when char == ?ü -> [?u,?e | sanitize(tail)]
-      char when char == ?ß -> [?s,?s |  sanitize(tail)]
-      _ -> sanitize(tail)
+      ?ß -> 'ss'
+      ?ä -> 'ae'
+      ?ö -> 'oe'
+      ?ü -> 'ue'
+      char when char in ?a..?z -> [char]
+      ?_ -> '_'
+      _ -> ''
     end
+    cleaned ++ sanitize(tail)
   end
 end
