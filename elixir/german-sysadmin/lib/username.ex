@@ -3,12 +3,12 @@ defmodule Username do
 
   def sanitize([head | tail]) do
     case head do
-      head when head in ?a..?z -> [head] ++ sanitize(tail)
-      head when head == ?_ -> [head] ++ sanitize(tail)
-      head when head == ?ö -> [?o,?e] ++ sanitize(tail)
-      head when head == ?ä -> [?a,?e] ++ sanitize(tail)
-      head when head == ?ü -> [?u,?e] ++ sanitize(tail)
-      head when head == ?ß -> [?s,?s] ++ sanitize(tail)
+      head when head in ?a..?z -> [head | sanitize(tail)]
+      head when head == ?_ -> [head | sanitize(tail)]
+      head when head == ?ö -> [?o,?e | sanitize(tail)]
+      head when head == ?ä -> [?a,?e | sanitize(tail)]
+      head when head == ?ü -> [?u,?e | sanitize(tail)]
+      head when head == ?ß -> [?s,?s |  sanitize(tail)]
       _ -> sanitize(tail)
     end
   end
