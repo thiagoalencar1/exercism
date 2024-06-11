@@ -13,14 +13,14 @@ defmodule WineCellar do
 
   def filter(cellar, color, [{:year, year} | rest]) do
     cellar
-    |> Keyword.filter(fn {_, {_, wine_year, _}} -> wine_year == year end)
     |> filter(color, rest)
+    |> filter_by_year(year)
   end
 
   def filter(cellar, color, [{:country, country} | rest]) do
     cellar
-    |> Keyword.filter(fn {_, {_, _, wine_country}} -> wine_country == country end)
     |> filter(color, rest)
+    |> filter_by_country(country)
   end
 
 
