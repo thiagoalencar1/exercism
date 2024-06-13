@@ -1,6 +1,6 @@
 defmodule PaintByNumber do
   def palette_bit_size(color_count) do
-    # Please implement the palette_bit_size/1 function
+    bit_size(color_count, 1)
   end
 
   def empty_picture() do
@@ -25,5 +25,13 @@ defmodule PaintByNumber do
 
   def concat_pictures(picture1, picture2) do
     # Please implement the concat_pictures/2 function
+  end
+
+  defp bit_size(color_count, count) do
+    if Integer.pow(2, count) >=color_count do
+      count
+    else
+      bit_size(color_count, count + 1)
+    end
   end
 end
