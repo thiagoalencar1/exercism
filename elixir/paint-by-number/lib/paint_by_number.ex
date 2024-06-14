@@ -4,11 +4,11 @@ defmodule PaintByNumber do
   end
 
   def empty_picture() do
-    # Please implement the empty_picture/0 function
+    <<>>
   end
 
   def test_picture() do
-    # Please implement the test_picture/0 function
+    <<00::2, 1::2, 2::2, 3::2>>
   end
 
   def prepend_pixel(picture, color_count, pixel_color_index) do
