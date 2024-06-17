@@ -1,10 +1,9 @@
 defmodule LibraryFees do
-  def datetime_from_string(string) do
-    NaiveDateTime.from_iso8601!(string)
-  end
+  def datetime_from_string(string), do: NaiveDateTime.from_iso8601!(string)
 
   def before_noon?(datetime) do
-    # Please implement the before_noon?/1 function
+    datetime
+    |> NaiveDateTime.to_time() |> Time.compare(~T[12:00:00]) == :lt
   end
 
   def return_date(checkout_datetime) do
