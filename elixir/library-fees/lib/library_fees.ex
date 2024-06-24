@@ -9,7 +9,9 @@ defmodule LibraryFees do
   end
 
   def days_late(planned_return_date, actual_return_datetime) do
-    # Please implement the days_late/2 function
+    actual_return_datetime
+    |> Date.diff(planned_return_date)
+    |> max(0)
   end
 
   def monday?(datetime) do
