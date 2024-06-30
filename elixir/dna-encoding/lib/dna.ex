@@ -19,9 +19,10 @@ defmodule DNA do
     end
   end
 
-  def encode(dna) do
-    # Please implement the encode/1 function
-  end
+  def encode(dna), do: do_encode(dna, <<>>)
+  defp do_encode([], acc), do: acc
+  defp do_encode([nucleotide | rest_of_dna], acc),
+    do: do_encode(rest_of_dna, <<acc::bitstring, encode_nucleotide(nucleotide)::4>>)
 
   def decode(dna) do
     # Please implement the decode/1 function
