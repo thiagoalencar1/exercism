@@ -24,7 +24,8 @@ defmodule DNA do
   defp do_encode([nucleotide | rest_of_dna], acc),
     do: do_encode(rest_of_dna, <<acc::bitstring, encode_nucleotide(nucleotide)::4>>)
 
-  def decode(dna) do
-    # Please implement the decode/1 function
-  end
+  def decode(dna), do: do_decode(dna, [])
+  defp do_decode(<<>>, acc), do: acc
+  defp do_decode(<<nucleotide::4, rest_of_dna::bitstring>>, acc),
+    do: do_decode(rest_of_dna, acc ++ [decode_nucleotide(nucleotide)])
 end
